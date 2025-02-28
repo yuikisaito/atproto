@@ -1,0 +1,9 @@
+{
+  "workspace": [
+    "./api",
+    "./did",
+    "./lexicon",
+    "./uri",
+    "./xrpc"
+  ]
+}
