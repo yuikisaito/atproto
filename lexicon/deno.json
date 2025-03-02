@@ -2,5 +2,8 @@
   "name": "@yuikisaito/atproto-lexicon",
   "version": "0.1.0",
   "exports": "./mod.ts",
-  "license": "MIT"
+  "license": "MIT",
+  "imports": {
+    "valibot": "jsr:@valibot/valibot@^0.42.1"
+  }
 }
