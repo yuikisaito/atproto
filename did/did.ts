@@ -1,6 +1,6 @@
 import { InvalidDidFormatError, InvalidDidMethodError, InvalidPlcDidLengthError } from "./did-error.ts";
 
-const DID_REGEX = /^did:([a-z]+):([a-zA-Z0-9._:%-]*[a-zA-Z0-9._-])$/;
+const DID_REGEX = /^did:(?<method>[a-z]+):(?<value>[a-zA-Z0-9._:%-]*[a-zA-Z0-9._-])$/;
 const VALID_DID_METHODS = new Set(["web", "plc"]);
 
 export class DID {
@@ -9,11 +9,11 @@ export class DID {
 
   constructor(did: string) {
     const match = DID_REGEX.exec(did);
-    if (!match) {
+    if (!match || !match.groups) {
       throw new InvalidDidFormatError(did);
     }
 
-    const method = match[1];
+    const method = match.groups.method;
     if (!VALID_DID_METHODS.has(method)) {
       throw new InvalidDidMethodError(did);
     }
