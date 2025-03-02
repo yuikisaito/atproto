@@ -5,8 +5,8 @@ export const DID_PATTERN = DID_REGEX.source.replace(/^\^|\$$/g, "");
 const VALID_DID_METHODS = new Set(["web", "plc"]);
 
 export class DID {
-  public readonly did: string;
-  public readonly method: string;
+  readonly did: string;
+  readonly method: string;
 
   constructor(did: string) {
     const match = DID_REGEX.exec(did);
